@@ -9,11 +9,12 @@
         <h2>Login</h2>
         <form action="/login" method="post">
             <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username"><br>
+            <input type="text" id="username" name="username" required><br>
 
             <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password"><br><br>
-
+            <input type="password" id="password" name="password" required><br><br>
+            <label for="stay">Stay logged in</label><input type="checkbox" id="stay" name="stay" checked><br>
+             
             <input type="submit" value="Login">
         </form>
 
