@@ -3,29 +3,16 @@ const express = require("express");
 const app = express();
 const fetch = require('node-fetch');
 
+const PORT = 8080;
 const PUBLIC_DIR = path.resolve(__dirname, '../public');
+
+// Serve static files after the specific routes
+app.use(express.static(PUBLIC_DIR));
 
 // Middleware to parse request body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.post('/login', (req, res) => {
-    const { username, password } = req.body;
-    console.log('Username:', username);
-    console.log('Password:', password);
-    res.send('Login successful!');
-});
-
-app.post('/sign-up', (req, res) => {
-    const { firstName, lastName, email, usrname, pswd, link } = req.body;
-    console.log('First Name:', firstName);
-    console.log('Last Name:', lastName);
-    console.log('Email:', email);
-    console.log('Username:', usrname);
-    console.log('Password:', pswd);
-    console.log('Existing Link:', link);
-    res.send('Account Activation Successful!')
-});
 
 // For specific file types, e.g., .html
 app.get("/:filename.html", (req, resp) => {
@@ -56,15 +43,13 @@ app.get('/fetch-news', (req, res) => {
         });
 });
 
-// Serve static files after the specific routes
-app.use(express.static(PUBLIC_DIR));
 
 // 404 Middleware
 app.use((req, res, next) => {
     res.status(404).send('Page Not Found');
 });
 
-const PORT = 8080;
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
