@@ -1,7 +1,7 @@
 const path = require("path");
 const express = require("express");
 const app = express();
-const fetch = require('node-fetch');
+const fetch = import('node-fetch');
 
 const PORT = 8080;
 const PUBLIC_DIR = path.resolve(__dirname, '../public');
