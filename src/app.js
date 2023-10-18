@@ -2,7 +2,6 @@ const app = require('express')();
 const path = require("path");
 const express = require("express");
 const bodyParser = require('body-parser');
-const app = express();
 
 const options = {
     // maps root requests (e.g. "/") to subfolder named "public"
