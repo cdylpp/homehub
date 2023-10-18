@@ -29,6 +29,42 @@ nav a {
     border: 1px solid #ddd;
     margin: 20px;
     padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#weather-data, #news-data {
+    margin-top: 10px;
+}
+
+/* News Widget Styles */
+.news-header {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.news-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.news-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.news-list li:last-child {
+    border-bottom: none;
+}
+
+.news-link {
+    text-decoration: none;
+    color: #007BFF; /* This is a typical bootstrap blue, but you can choose any color you prefer */
+    transition: color 0.3s ease;
+}
+
+.news-link:hover {
+    color: #0056b3; /* Darken the blue on hover */
 }
 
 /* Add other styles as needed */
