@@ -1,12 +1,26 @@
 const app = require('express')();
+const path = require("path");
+const express = require("express");
 const bodyParser = require('body-parser');
 
-const PORT = 8080; 
+const options = {
+    // maps root requests (e.g. "/") to subfolder named "public"
+    root: path.join(__dirname, "public") 
+ };
 
+const PORT = 8080; // You can change this to any desired port
+
+// Middleware to parse request body
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve static files (e.g., HTML, CSS)
-app.use(require('express').static('public'));
+app.use(express.static('public'));
+
+app.use('/login', require('./routes/login'));
+
+app.use('/sign-up', require('./routes/sign-up'));
+
+app.use('/index', require('./routes/index'));
 
 app.get('/fetch-news', (req, res) => {
     const CURRENTS_API_KEY = "xFtc2XLZguyQFsTOECDahE2Y-6kNbwRA1QOuFPSGdSwbj22g";
