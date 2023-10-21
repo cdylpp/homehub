@@ -1,55 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .window {
-      background-color: white;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-      text-align: center;
-    }
-    .close-button {
-      background-color: #e74c3c;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
+    <style>
+        /* CSS for the floating box */
+        .floating-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-  <div class="overlay" id="overlay">
-    <div class="window">
-      <p>This is a semi-transparent window with some text.</p>
-      <button class="close-button" onclick="closeWindow()">Exit</button>
-    </div>
-  </div>
 
-  <script>
-    function closeWindow() {
-      const overlay = document.getElementById('overlay');
-      overlay.style.display = 'none';
+<button onclick="showFloatingBox('This is your message!', 3000)">Show Message</button>
+
+<div id="floating-box" class="floating-box">
+    <p id="message"></p>
+</div>
+
+<script>
+    // JavaScript function to show a floating box with a message and auto-hide it
+    function showFloatingBox(message, duration) {
+        var floatingBox = document.getElementById('floating-box');
+        var messageElement = document.getElementById('message');
+
+        messageElement.innerHTML = message;
+        floatingBox.style.display = 'block';
+
+        setTimeout(function () {
+            floatingBox.style.display = 'none';
+        }, duration);
     }
-  </script>
+</script>
+
 </body>
 </html>
