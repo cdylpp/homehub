@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const options = {
     // maps root requests (e.g. "/") to subfolder named "public"
-    root: path.join(__dirname, "public") 
+    root: path.join(__dirname, "public/pages") 
  };
 
 const PORT = 8080; // You can change this to any desired port

@@ -996,3 +996,22 @@ a:focus {
           transform: rotate(-45deg) translate(8px, -8px);
 }
 /*# sourceMappingURL=style.css.map */
+
+.flex-container {
+  display: flex;
+}
+
+div.flex {
+  float: left;
+}
+
+div.calendar_container {
+  width: 70%;
+}
+div.news-widget {
+  
+  width: 15%;
+  overflow-x: scroll;
+}
+
+
