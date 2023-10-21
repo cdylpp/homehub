@@ -24,9 +24,9 @@
   <link href="../css/master-schedule-styles.css" rel="stylesheet"/>
   <!-- responsive style -->
   <link href="../css/responsive.css" rel="stylesheet" />
-
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
   <script src="../js/calendar.js"></script>
+  <script src="../js/main.js"></script>
   
 </head>
 
@@ -52,7 +52,7 @@
                 <a class="nav-link" href="#memberSchedules">Schedules <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#todos">To-dos</a>
+                <a class="nav-link" href="todo.html">To-dos</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#members">Members </a>
@@ -93,14 +93,35 @@
     </header>
     <!-- end header section -->
   </div>
-  
-  <!-- Content -->
-  <div class="calendar_container">
-    <!-- Calendar API -->
-    <div class="calendar" id='calendar'>
+  <section class="flex-container">
 
+    <!-- Weather Section -->
+    <div class="flex widget">
+      <h3>Weather in San Diego</h3>
+      <p class="weather-description"></p>
+      <p class="temperature"></p>
+      <p class="humidity"></p>
     </div>
+
+    <div class="flex calendar_container">
+      <!-- Calendar API -->
+      <div class="calendar" id='calendar'></div>
     </div>
+
+      <!-- News Section -->
+    <div class="flex news-widget">
+      <h3>Latest News</h3>
+      <ul class="news-list">
+      <!-- News items will be populated here by the JavaScript -->
+      </ul>
+    </div>
+
+  </section>
+
+
+
+
+
 
 
   <!-- info section -->
