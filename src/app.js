@@ -22,6 +22,8 @@ app.use('/sign-up', require('./routes/sign-up'));
 
 app.use('/index', require('./routes/index'));
 
+app.use('/events', require('./scripts/events'));
+
 app.get('/fetch-news', (req, res) => {
     const CURRENTS_API_KEY = "xFtc2XLZguyQFsTOECDahE2Y-6kNbwRA1QOuFPSGdSwbj22g";
     const CURRENTS_ENDPOINT = `https://api.currentsapi.services/v1/latest-news?apiKey=${CURRENTS_API_KEY}`;

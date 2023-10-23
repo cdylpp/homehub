@@ -22,15 +22,34 @@ document.addEventListener('DOMContentLoaded', function() {
           click: function() {
             var eventName = prompt('Enter the event name:')
             var dateStr = prompt('Enter a date in yyyy-mm-dd format');
-            var date = new Date(dateStr + 'T00:00:00');
-
+            var start = prompt('Enter start time hh:mm:');
+            var duration = prompt('Enter duration (e.g. 1:30 for 1 hour and 30 minutes):');
+            var allDay;
+          
+            if(start == null || start == ""){
+              allDay = true;
+              start = 'T00:00:00'
+            }
+          
+            if(duration == null || duration == ""){
+              duration = '1:00';
+              allDay = false;
+            }
+          
+            start = 'T' + start;
+            var date = new Date(dateStr + start);
+            
+          
             if (!isNaN(date.valueOf())) {
               calendar.addEvent({
                 title: eventName,
                 start: date,
-                allDay: true
+                duration: duration,
+                allDay: allDay
               });
-              alert('Great. Now, update the database...');
+          
+              pushUserEvents(eventName, date, start, duration, allDay).catch(err => console.log(err));
+          
             } else {
               alert('Invalid event entry.');
             }
@@ -72,11 +91,15 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Event added, now upate the database.');
         }
 
-      }
+      },
+
+
     });
 
-    allEvents = {
-        events: [
+
+
+    allEvents = { 
+         events: [
         {
             title: 'CSC441 Meeting',
             start: '2023-10-16T18:00:00',
@@ -103,3 +126,10 @@ document.addEventListener('DOMContentLoaded', function() {
     calendar.render();
     calendar.addEventSource(allEvents);
   });
+
+
+function eventPrompt() {
+  document.alert().innerHtml = '<p>some text</p>'
+}
+
+
